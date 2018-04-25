@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Faktoriyel Hesaplama</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+</head>
+
+<body>
+
+
+
+        <div class="container">
+
+                <h1  class="title is-1 is-size-2-mobile has-text-black-ter has-text-centered has-text-weight-semibold" style="margin-top: 30px;">Faktoriyel Hesaplama</h1>
+                
+                <div class="box" style="margin-top: 2rem; margin-left: 1rem; margin-right: 1rem;">
+
+                <div class="notification is-danger"  style="max-width: 30rem;margin: 20px auto;">
+                        <p> Lütfen sadece 1 ile 170 arasında bir  <strong> sayı </strong> giriniz </p>
+                 </div>
+
+                <div class="field"  style="max-width: 30rem;margin: 0 auto;">
+                        <div class="control">
+                          <input id="factorInput" class="input is-large" type="text" placeholder="Sayıyı giriniz">
+                        </div>
+                </div>
+
+                  <p style="max-width: 30rem; margin: 30px auto;" class="title is-1" > Sonuç:  <span  id="messages"  ></span> </p>
+                </div>
+
+            </div>
+    
+
+            <script>
+
+                (function () { 
+                    const factorInput = document.getElementById('factorInput');
+                    const messages = document.getElementById('messages');
+                
+                    factorInput.addEventListener('input' , function(e) {
+
+                     let numValue = Number(this.value);
+                  
+                     return Number.isInteger(numValue) & numValue < 171
+                            ? messages.textContent = factorialize(this.value) 
+                            :  this.value = '';
+                      
+                    });
+
+                    function factorialize(num) {
+                        if (num === 0 ) return 1;
+                        return num*factorialize(num-1);
+                    }
+                })(); 
+            </script>
+</body>
+</html>
